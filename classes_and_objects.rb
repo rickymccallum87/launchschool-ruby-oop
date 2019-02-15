@@ -19,6 +19,10 @@ class MyCar
   def shut_off
     @current_speed = 0
   end
+
+  def spray_paint color
+    self.color = color
+  end
 end
 
 geo = MyCar.new 1993, 'green', 'metro'
@@ -26,4 +30,6 @@ puts geo.year
 puts geo.speed_up 55
 puts geo.brake 10
 puts geo.shut_off
+puts geo.color
+geo.color = 'blue'
 puts geo.color
