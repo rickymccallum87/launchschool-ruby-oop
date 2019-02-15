@@ -30,6 +30,10 @@ class MyCar
   def self.gas_mileage fuel, distance
     distance / fuel
   end
+
+  def to_s
+    "This is a #{color} #{year} #{@model}."
+  end
 end
 
 geo = MyCar.new 1993, 'green', 'metro'
@@ -41,3 +45,5 @@ puts geo.color
 geo.color = 'blue'
 puts geo.color
 puts MyCar.gas_mileage 2, 20
+puts geo
+p geo
