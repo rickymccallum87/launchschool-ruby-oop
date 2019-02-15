@@ -1,6 +1,9 @@
 class MyCar
+  @@gas_mileage
+
   attr_accessor :color
   attr_reader :year
+
   def initialize year, color, model
     @year = year
     @color = color
@@ -23,6 +26,10 @@ class MyCar
   def spray_paint color
     self.color = color
   end
+
+  def self.gas_mileage fuel, distance
+    distance / fuel
+  end
 end
 
 geo = MyCar.new 1993, 'green', 'metro'
@@ -33,3 +40,4 @@ puts geo.shut_off
 puts geo.color
 geo.color = 'blue'
 puts geo.color
+puts MyCar.gas_mileage 2, 20
