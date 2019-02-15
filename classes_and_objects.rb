@@ -7,12 +7,26 @@ class MyCar
     @current_speed = 0
   end
 
-  def speed_up
+  def speed_up amount
+    self.current_speed += amount
   end
 
-  def brake
+  def brake amount
+    self.current_speed -= amount
   end
 
   def shut_off
+    self.current_speed = 0
   end
 end
+
+geo = MyCar.new 1993, 'green', 'metro'
+puts geo.year
+puts geo.model
+puts geo.current_speed
+geo.speed_up 55
+puts geo.current_speed
+geo.brake 10
+puts geo.current_speed
+geo.shut_off
+puts geo.current_speed
