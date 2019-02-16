@@ -1,7 +1,6 @@
 class MyCar
 
-  attr_accessor :color
-  attr_reader :year
+  attr_reader :year, :color
 
   def initialize year, model, color
     @year = year
@@ -28,17 +27,14 @@ class MyCar
     @current_speed = 0
     puts "You shut the vehicle down."
   end
+  
+  def spray_paint color
+    @color = color
+    puts "The #{@model} has been spray painted #{color}."
+  end
 end
 
 geo = MyCar.new 1993, 'metro', 'green'
-geo.current_speed
-geo.speed_up 10
-geo.current_speed
-geo.brake 5
-geo.current_speed
-geo.shut_down
-geo.current_speed
-puts geo.year
 puts geo.color
-geo.color = 'blue'
+geo.spray_paint 'orange'
 puts geo.color
