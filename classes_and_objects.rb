@@ -1,6 +1,6 @@
-class MyCar
+class Vehicle
 
-  attr_reader :year, :color
+  attr_reader :color
 
   def initialize year, model, color
     @year = year
@@ -30,7 +30,7 @@ class MyCar
 
   def spray_paint color
     @color = color
-    puts "The #{@model} has been spray painted #{color}."
+    puts "The #{@model} has been spray painted #{@color}."
   end
 
   def to_s
@@ -42,8 +42,20 @@ class MyCar
   end
 end
 
+class MyCar < Vehicle
+  DOORS = 4
+end
+
+class MyTruck < Vehicle
+  DOORS = 2
+end
+
 MyCar.gas_mileage 10, 100
 geo = MyCar.new 1993, 'metro', 'green'
 puts geo
 geo.spray_paint 'orange'
 puts geo.color
+
+pickup = MyTruck.new 2010, 'ford', 'black'
+puts pickup
+pickup.shut_down
