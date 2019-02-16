@@ -33,6 +33,10 @@ class MyCar
     puts "The #{@model} has been spray painted #{color}."
   end
 
+  def to_s
+    "A #{@color} #{@year} #{@model}."
+  end
+
   def self.gas_mileage gallons, miles
     puts "This vehicle gets #{miles / gallons} miles to the gallon."
   end
@@ -40,6 +44,6 @@ end
 
 MyCar.gas_mileage 10, 100
 geo = MyCar.new 1993, 'metro', 'green'
-puts geo.color
+puts geo
 geo.spray_paint 'orange'
 puts geo.color
