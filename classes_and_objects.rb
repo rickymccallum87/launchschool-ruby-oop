@@ -1,49 +1,36 @@
 class MyCar
-  @@gas_mileage
-
-  attr_accessor :color
-  attr_reader :year
-
-  def initialize year, color, model
+  def initialize year, model, color
     @year = year
-    @color = color
     @model = model
+    @color = color
     @current_speed = 0
   end
 
-  def speed_up amount
-    @current_speed += amount
+  def speed_up mph
+    @current_speed += mph
+    puts "You accelerate by #{mph} mph."
   end
 
-  def brake amount
-    @current_speed -= amount
+  def brake mph
+    @current_speed -= mph
+    puts "You decelerate by #{mph} mph."
   end
 
-  def shut_off
+  def current_speed
+    puts "Current speed is #{@current_speed} mph."
+  end
+
+  def shut_down
     @current_speed = 0
-  end
-
-  def spray_paint color
-    self.color = color
-  end
-
-  def self.gas_mileage fuel, distance
-    distance / fuel
-  end
-
-  def to_s
-    "This is a #{color} #{year} #{@model}."
+    puts "You shut the vehicle down."
   end
 end
 
-geo = MyCar.new 1993, 'green', 'metro'
-puts geo.year
-puts geo.speed_up 55
-puts geo.brake 10
-puts geo.shut_off
-puts geo.color
-geo.color = 'blue'
-puts geo.color
-puts MyCar.gas_mileage 2, 20
-puts geo
-p geo
+geo = MyCar.new 1993, 'metro', 'green'
+geo.current_speed
+geo.speed_up 10
+geo.current_speed
+geo.brake 5
+geo.current_speed
+geo.shut_down
+geo.current_speed
