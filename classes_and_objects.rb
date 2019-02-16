@@ -27,13 +27,18 @@ class MyCar
     @current_speed = 0
     puts "You shut the vehicle down."
   end
-  
+
   def spray_paint color
     @color = color
     puts "The #{@model} has been spray painted #{color}."
   end
+
+  def self.gas_mileage gallons, miles
+    puts "This vehicle gets #{miles / gallons} miles to the gallon."
+  end
 end
 
+MyCar.gas_mileage 10, 100
 geo = MyCar.new 1993, 'metro', 'green'
 puts geo.color
 geo.spray_paint 'orange'
