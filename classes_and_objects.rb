@@ -2,11 +2,18 @@ class Vehicle
 
   attr_reader :color
 
+  @@vehicles_created = 0
+
   def initialize year, model, color
     @year = year
     @model = model
     @color = color
     @current_speed = 0
+    @@vehicles_created += 1
+  end
+
+  def self.count
+    "#{@@vehicles_created} vehicles have been created."
   end
 
   def speed_up mph
@@ -59,3 +66,5 @@ puts geo.color
 pickup = MyTruck.new 2010, 'ford', 'black'
 puts pickup
 pickup.shut_down
+
+puts Vehicle.count
