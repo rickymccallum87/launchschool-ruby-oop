@@ -1,4 +1,8 @@
 class MyCar
+
+  attr_accessor :color
+  attr_reader :year
+
   def initialize year, model, color
     @year = year
     @model = model
@@ -34,3 +38,7 @@ geo.brake 5
 geo.current_speed
 geo.shut_down
 geo.current_speed
+puts geo.year
+puts geo.color
+geo.color = 'blue'
+puts geo.color
