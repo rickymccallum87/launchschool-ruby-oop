@@ -1,7 +1,5 @@
 class Vehicle
-
   attr_reader :color
-
   @@vehicles_created = 0
 
   def initialize year, model, color
@@ -49,11 +47,18 @@ class Vehicle
   end
 end
 
+module Loadable
+  def can_tow? pounds
+    pounds < 2000 ? true : false;
+  end
+end
+
 class MyCar < Vehicle
   DOORS = 4
 end
 
 class MyTruck < Vehicle
+  include Loadable
   DOORS = 2
 end
 
@@ -66,5 +71,7 @@ puts geo.color
 pickup = MyTruck.new 2010, 'ford', 'black'
 puts pickup
 pickup.shut_down
+puts pickup.can_tow?(1500) ? "Let's tow!" : "That's too much."
+puts pickup.can_tow?(2500) ? "Let's tow!" : "That's too much."
 
 puts Vehicle.count
