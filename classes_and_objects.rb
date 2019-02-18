@@ -45,6 +45,16 @@ class Vehicle
   def self.gas_mileage gallons, miles
     puts "This vehicle gets #{miles / gallons} miles to the gallon."
   end
+
+  def age
+    calculate_age @year, Time.now.year
+  end
+
+  private
+
+  def calculate_age birth, now
+    now - birth
+  end
 end
 
 module Loadable
@@ -79,3 +89,6 @@ puts Vehicle.count
 p Vehicle.ancestors
 p MyCar.ancestors
 p MyTruck.ancestors
+
+puts geo.age
+puts pickup.age
