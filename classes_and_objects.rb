@@ -75,3 +75,7 @@ puts pickup.can_tow?(1500)
 puts pickup.can_tow?(2500)
 
 puts Vehicle.count
+
+p Vehicle.ancestors
+p MyCar.ancestors
+p MyTruck.ancestors
